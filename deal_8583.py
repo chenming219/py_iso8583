@@ -32,6 +32,9 @@ class deal_len_type:
     def fixed_unpack(self,cfg,data,offset):
         return (cfg["max_len"],0)
     
+    def fixed_b_unpack(self,cfg,data,offset):
+        return (cfg["max_len"],0)
+    
     def LLVAR_unpack(self,cfg,data,offset):
         len = 2
         data_len=int(data[offset:offset+len])
@@ -49,7 +52,15 @@ class deal_len_type:
         
         max_len = cfg["max_len"]
         data_len = len(data)
-        #assert data_len == max_len,"fixed len err"
+        assert data_len == max_len,"fixed len err"
+        len_val = ""
+        return len_val
+    
+    def fixed_b_pack(self,cfg,data):
+        
+        max_len = cfg["max_len"]
+        data_len = len(data)
+        assert data_len*4 == max_len,"fixed_b len err"
         len_val = ""
         return len_val
     

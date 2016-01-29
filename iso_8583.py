@@ -132,7 +132,7 @@ class iso_8583:
     def ISO8583_testOutput(self):  
         for d in range(-6,128+1):
             if self.__8583_dic.has_key(d):
-                print "[%2s] [%08s] [%06s] [%03s] : %s" % \
+                print "[%2s] [%08s] [%08s] [%03s] : %s" % \
                 (
                  d,
                  self.__8583_cfg[d]["content_type"],
