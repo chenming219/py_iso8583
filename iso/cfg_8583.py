@@ -168,12 +168,16 @@ ContentTypes['pos'] = {
     41 : {'content_type':'ASCII',      'max_len': 8,    'len_type': 'fixed'},
     42 : {'content_type':'ASCII',      'max_len': 15,   'len_type': 'fixed'},
     44 : {'content_type':'ASCII',      'max_len': 25,   'len_type': 'LLVAR'},
+    48 : {'content_type':'BCD',        'max_len': 322,  'len_type': 'LLLVAR'},
     49 : {'content_type':'ASCII',      'max_len': 3,    'len_type': 'fixed'},
     52 : {'content_type':'BINARY',     'max_len': 64,   'len_type': 'fixed_b'},
     53 : {'content_type':'BCD',        'max_len': 16,   'len_type': 'fixed'},
+    54 : {'content_type':'ASCII',      'max_len': 322,  'len_type': 'LLLVAR'},
     55 : {'content_type':'BCD',        'max_len': 255,  'len_type': 'LLLVAR'},
+    58 : {'content_type':'BCD',        'max_len': 100,  'len_type': 'LLLVAR'},
     60 : {'content_type':'BCD',        'max_len': 17,   'len_type': 'LLLVAR'},
     61 : {'content_type':'BCD',        'max_len': 29,   'len_type': 'LLLVAR'},
-    63 : {'content_type':'ASCII',      'max_len': 3,    'len_type': 'LLLVAR'},
+    62 : {'content_type':'ASCII',      'max_len': 512,  'len_type': 'LLLVAR'},
+    63 : {'content_type':'ASCII',      'max_len': 163,  'len_type': 'LLLVAR'},
     64 : {'content_type':'BINARY',     'max_len': 64,   'len_type': 'fixed_b'}
 }
