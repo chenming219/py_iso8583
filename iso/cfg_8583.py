@@ -141,12 +141,21 @@ Descriptions['1987'] = {
 
 ContentTypes = {}
 
-ContentTypes['pos'] = {
-    -6 : {'content_type':'BCD',        'max_len': 4,   'len_type': 'fixed'},
+ContentTypes['pos_head'] = {
+    -6 : {'content_type':'BCD',        'max_len': 4,    'len_type': 'fixed'},
     -5 : {'content_type':'BCD',        'max_len': 10,   'len_type': 'fixed'},
     -4 : {'content_type':'BCD',        'max_len': 12,   'len_type': 'fixed'},
     -3 : {'content_type':'BCD',        'max_len': 4,    'len_type': 'fixed'},
-    -2 : {'content_type':'BINARY',     'max_len': 64,   'len_type': 'fixed_b'},
+    -2 : {'content_type':'BINARY',     'max_len': 64,   'len_type': 'fixed_b'}
+}
+
+ContentTypes['cup_head'] = {
+    -6 : {'content_type':'BCD',        'max_len': 4,    'len_type': 'fixed'},
+    -3 : {'content_type':'BCD',        'max_len': 4,    'len_type': 'fixed'},
+    -2 : {'content_type':'BINARY',     'max_len': 64,   'len_type': 'fixed_b'}
+}
+
+ContentTypes['pos'] = {
      2 : {'content_type':'BCD',        'max_len': 19,   'len_type': 'LLVAR'},
      3 : {'content_type':'BCD',        'max_len': 6,    'len_type': 'fixed'},
      4 : {'content_type':'BCD',        'max_len': 12,   'len_type': 'fixed'},
@@ -183,11 +192,6 @@ ContentTypes['pos'] = {
 }
 
 ContentTypes['yb'] = {
-    -6 : {'content_type':'BCD',        'max_len': 4,   'len_type': 'fixed'},
-    -5 : {'content_type':'BCD',        'max_len': 10,   'len_type': 'fixed'},
-    -4 : {'content_type':'BCD',        'max_len': 12,   'len_type': 'fixed'},
-    -3 : {'content_type':'BCD',        'max_len': 4,    'len_type': 'fixed'},
-    -2 : {'content_type':'BINARY',     'max_len': 64,   'len_type': 'fixed_b'},
      2 : {'content_type':'BCD',        'max_len': 19,   'len_type': 'LLVAR'},
      3 : {'content_type':'BCD',        'max_len': 6,    'len_type': 'fixed'},
      4 : {'content_type':'BCD',        'max_len': 12,   'len_type': 'fixed'},
