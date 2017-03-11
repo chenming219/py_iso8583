@@ -53,14 +53,17 @@ class iso_8583:
     def __gen_bitmap(self):
         bitmap_list = [key for key in self.__8583_dic if key > 1]
         
-        bitmap="0"*64
+        if self.__8583_head_cfg[-2].has_key("bitmap") and self.__8583_head_cfg[-2]["bitmap"] == 1:
+            bitmap="1" + "0"*(self.__8583_head_cfg[-2]["max_len"] - 1)
+        else:
+            bitmap="0"*(self.__8583_head_cfg[-2]["max_len"])
+
         for x in bitmap_list:
             if x >=1 :
                 bitmap="%s1%s" % (bitmap[:x-1],bitmap[x:])
         tmp = re.findall(r'.{4}',bitmap)
         self.bitmap = ''.join([hex(int(c,2))[2:].upper() for c in tmp])
         return self.bitmap
-        #print self.bitmap
     
     def __get_info(self,cfg,domain):
         if cfg.has_key(domain):
@@ -76,7 +79,6 @@ class iso_8583:
             
             val,offset_data=content_type_func(self.__8583_str,len,self.offset)  
             self.offset += offset_data
-            
             self.__8583_dic[domain] = val
     
     def __unpack_head(self):
@@ -113,11 +115,9 @@ class iso_8583:
             info={}
             info["len"]=len_func(cfg_domain,data)
             info["val"]=content_type_func(data)  
-            
             return info["len"] + info["val"]
         else:
             return ""
-    
     
     def __pack_head(self):
         self.__8583_dic[-2]=self.__gen_bitmap()
@@ -143,11 +143,13 @@ class iso_8583:
         list = self.__pack_head() + list
         
         body = "".join(list)
-        body_len = len(body)
-        ret = "%s%s" % ("%04X" % (body_len/2),body)
-        return ret
-                
-            
+        body_len = ""
+        if self.__8583_head_cfg[-6].has_key('self_len') and self.__8583_head_cfg[-6]['self_len']==1:
+            body_len = "%04X" % ((len(body)/2) + 2)
+        else:
+            body_len = "%04X" % ((len(body)/2))
+        return (body_len + body).upper()
+  
     def ISO8583_testOutput(self):  
         cfg = dict(self.__8583_head_cfg , **self.__8583_cfg)
         for d in range(-6,128+1):

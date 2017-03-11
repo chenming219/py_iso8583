@@ -154,7 +154,6 @@ ContentTypes['cup_head'] = {
     -3 : {'content_type':'BCD',        'max_len': 4,    'len_type': 'fixed'},
     -2 : {'content_type':'BINARY',     'max_len': 64,   'len_type': 'fixed_b'}
 }
-
 ContentTypes['pos'] = {
      2 : {'content_type':'BCD',        'max_len': 19,   'len_type': 'LLVAR'},
      3 : {'content_type':'BCD',        'max_len': 6,    'len_type': 'fixed'},
@@ -227,4 +226,40 @@ ContentTypes['yb'] = {
     62 : {'content_type':'ASCII',      'max_len': 512,  'len_type': 'LLLVAR'},
     63 : {'content_type':'ASCII',      'max_len': 163,  'len_type': 'LLLVAR'},
     64 : {'content_type':'BINARY',     'max_len': 64,   'len_type': 'fixed_b'}
+}
+
+
+ContentTypes['lz_term_head'] = {
+    -6 : {'content_type':'BCD',        'max_len': 4,     'len_type': 'fixed'  ,'self_len':1},
+    -4 : {'content_type':'BCD',        'max_len': 20,    'len_type': 'fixed'},
+    -2 : {'content_type':'BINARY',     'max_len': 128,   'len_type': 'fixed_b','bitmap':1}
+}
+ContentTypes['lz_term'] = {
+     2 : {'content_type':'ASCII',      'max_len': 99,   'len_type': 'LLVAR_ASC'},
+     3 : {'content_type':'ASCII',      'max_len': 6,    'len_type': 'fixed'},
+     4 : {'content_type':'ASCII',      'max_len': 12,   'len_type': 'fixed'},
+     7 : {'content_type':'ASCII',      'max_len': 10,   'len_type': 'fixed'},
+    11 : {'content_type':'ASCII',      'max_len': 6,    'len_type': 'fixed'},
+    12 : {'content_type':'ASCII',      'max_len': 6,    'len_type': 'fixed'},
+    13 : {'content_type':'ASCII',      'max_len': 4,    'len_type': 'fixed'},
+    14 : {'content_type':'ASCII',      'max_len': 4,    'len_type': 'fixed'},
+    18 : {'content_type':'ASCII',      'max_len': 4,    'len_type': 'fixed'},
+    22 : {'content_type':'ASCII',      'max_len': 3,    'len_type': 'fixed'},
+    23 : {'content_type':'ASCII',      'max_len': 3,    'len_type': 'fixed'},
+    25 : {'content_type':'ASCII',      'max_len': 2,    'len_type': 'fixed'},
+    26 : {'content_type':'ASCII',      'max_len': 2,    'len_type': 'fixed'},
+    32 : {'content_type':'ASCII',      'max_len': 99,   'len_type': 'LLVAR_ASC'},
+    33 : {'content_type':'ASCII',      'max_len': 99,   'len_type': 'LLVAR_ASC'},
+    35 : {'content_type':'ASCII',      'max_len': 99,   'len_type': 'LLVAR_ASC'},
+    41 : {'content_type':'ASCII',      'max_len': 8,    'len_type': 'fixed'},
+    42 : {'content_type':'ASCII',      'max_len': 15,   'len_type': 'fixed'},
+    43 : {'content_type':'BCD_UNC',    'max_len': 40,   'len_type': 'fixed_ub'},
+    48 : {'content_type':'ASCII',      'max_len': 999,  'len_type': 'LLLVAR_ASC'},
+    49 : {'content_type':'ASCII',      'max_len': 3,    'len_type': 'fixed'},
+    52 : {'content_type':'BCD',        'max_len': 16,   'len_type': 'fixed'},
+    53 : {'content_type':'ASCII',      'max_len': 16,   'len_type': 'fixed'},
+    55 : {'content_type':'BCD_UNC',    'max_len': 999,  'len_type': 'LLLVAR_ub'},
+    60 : {'content_type':'ASCII',      'max_len': 999,  'len_type': 'LLLVAR_ASC'},
+    122: {'content_type':'ASCII',      'max_len': 999,  'len_type': 'LLLVAR_ASC'},
+    128: {'content_type':'BINARY',     'max_len': 64,   'len_type': 'fixed_b'}
 }
